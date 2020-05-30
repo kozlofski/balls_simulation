@@ -1,12 +1,15 @@
 #pragma once
 
-class Ball {
-    public:
+class Ball
+{
+private:
+    double mass;
+    std::vector<double> speed;
+    std::vector<double> coords;
 
-
-    private:
-
-
-
-
+public:
+    int checkCollisionsWithWalls();
+    std::vector<double> checkCollisionsWithBall(Ball);
+    void updateSpeed();
+    void updateCoords(double timeInterval);
 };

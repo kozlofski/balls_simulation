@@ -4,7 +4,7 @@
 
 enum class Wall {
     X_Pos,
-    X_neg,
+    X_Neg,
     Y_Pos,
     Y_Neg,
     Z_Pos,
@@ -20,14 +20,15 @@ private:
 
 public:
     void saveFrame(std::vector<Ball> balls);
-    void evolution(const int interations);
+    void evolution(const int iterations);
 
 private:
     void round();
-    Wall detectCollisionsWithWalls(const Ball& ball);
-    void bounceFromWall(Ball& ball, const Wall& wall);
+    std::vector<Wall> detectCollisionsWithWalls(Ball& ball);
+    void bounceFromWall(Ball& ball, const std::vector<Wall>& wallsHit);
+    void detectCollisionsWithBalls(std::vector<Ball> balls);
     std::vector<Ball> checkCollisionsWithOtherBalls(const Ball& ball, const std::vector<Ball>& balls);
-    void bounceFromBall(Ball& ball, const std::vector<Ball>& ballsCollided);
+    // void bounceFromBall(Ball& ball, const std::vector<Ball>& ballsCollided);
     // void updateSpeeds(Ball & ball);
     void moveBalls(std::vector<Ball> balls, double timeInterval);
 

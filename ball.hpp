@@ -23,12 +23,16 @@ public:
 
     void updateCoords(double timeInterval);
     int checkCollisionsWithWalls();
+    void bounceFromWall(const Wall& wallHit);
+    bool hasCollidedWith(Ball& ball);
     std::vector<double> checkCollisionsWithBall(Ball);
+    void bounceFromBall(Ball& otherBall);
 
-    void set_speed(const Coords& coords);
-    Speed get_speed();
-    void set_coords(const Speed& speed);
-    Coords get_coords();
+    void setSpeed(const Coords& coords);
+    Speed getSpeed();
+    void setCoords(const Speed& speed);
+    Coords getCoords();
+    double getRadius();
 
     void print();
 

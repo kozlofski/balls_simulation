@@ -1,15 +1,36 @@
 #pragma once
 
-class Ball
-{
+#include <vector>
+
+struct Coords {
+    double x, y, z;
+};
+
+struct Speed {
+    double x, y, z;
+};
+
+class Ball {
 private:
     double mass;
-    std::vector<double> speed;
-    std::vector<double> coords;
+    double radius;
+    Speed speed;
+    Coords coords;
 
 public:
+    Ball() {}
+    ~Ball() {}
+
+    void updateCoords(double timeInterval);
     int checkCollisionsWithWalls();
     std::vector<double> checkCollisionsWithBall(Ball);
-    void updateSpeed();
-    void updateCoords(double timeInterval);
+
+    void set_speed(const Coords& coords);
+    Speed get_speed();
+    void set_coords(const Speed& speed);
+    Coords get_coords();
+
+    void print();
+
+    // Ball& operator<<{};
 };
